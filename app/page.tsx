@@ -6,8 +6,16 @@ import SemanticsCard from "./components/SemanticsCard";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
-// ISR revalidation. The producer publishes ~2x/week, so 60s is plenty;
-// it just bounds how stale the rendered page can be after a fresh run.
+// Dynamic rendering with response-level fetch caching.
+//   - `dynamic = 'force-dynamic'` runs the page on every request, so the
+//     index.json fetch happens at request time (not at build time on
+//     Vercel, where a slow/flaky R2 hop could fail the whole build).
+//   - The fetch itself still benefits from Next's per-URL cache via
+//     `next: { revalidate: 60 }` inside `fetchNetworkIndex`. So a burst of
+//     traffic only triggers one upstream fetch per 60-second window.
+//   - `revalidate` is also re-stated here for clarity and as a safety net
+//     in case the rendering mode is ever toggled back to static.
+export const dynamic = "force-dynamic";
 export const revalidate = 60;
 
 export default async function Page() {
