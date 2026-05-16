@@ -1,6 +1,17 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+
+  // Pin Turbopack's workspace root to THIS project — Next 15.5's workspace
+  // inference walks parent dirs looking for `node_modules` and on macOS
+  // gets confused between /tmp and the symlinked /private/tmp. Pinning here
+  // makes builds reproducible regardless of where the project is cloned.
+  turbopack: { root: __dirname },
 
   // No image domains needed — we render no remote images.
 
