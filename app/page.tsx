@@ -4,7 +4,6 @@ import NetworkSection from "./components/NetworkSection";
 import RecipeCard from "./components/RecipeCard";
 import SemanticsCard from "./components/SemanticsCard";
 import Hero from "./components/Hero";
-import Footer from "./components/Footer";
 
 // Dynamic rendering with response-level fetch caching.
 //   - `dynamic = 'force-dynamic'` runs the page on every request, so the
@@ -42,8 +41,6 @@ export default async function Page() {
         <RecipeCard />
         <SemanticsCard />
       </section>
-
-      <Footer />
     </main>
   );
 }

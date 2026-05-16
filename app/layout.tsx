@@ -8,6 +8,13 @@ export const metadata: Metadata = {
     "Periodic reth datadir snapshots for Taiko L2 networks (hoodi, mainnet). " +
     "Published twice weekly to Cloudflare R2 with sha256 verification, " +
     "compatible with the EthPandaOps snapshot URL conventions.",
+  // Use the official Taiko geometric mark as the favicon. The SVG is the
+  // same asset that appears at taiko.xyz (public/img/logo.svg in
+  // taikoxyz/new-website-v3) — solid Taiko pink (#E81899), scalable, no
+  // raster fallback needed on modern browsers.
+  icons: {
+    icon: [{ url: "/taiko-mark.svg", type: "image/svg+xml" }],
+  },
   openGraph: {
     title: "Taiko L2 Snapshots",
     description:

@@ -1,12 +1,27 @@
+/* eslint-disable @next/next/no-img-element */
+// The official Taiko wordmark + mark are static SVGs shipped from /public;
+// next/image's runtime image loader is unnecessary overhead for a 2.5 KB
+// inline-friendly vector. Disabling the rule keeps the asset path explicit.
+
 export default function Hero() {
   return (
-    <header className="flex flex-col gap-3 pt-2">
-      <div className="flex items-center gap-3">
-        <TaikoMark />
-        <span className="text-sm font-medium tracking-wide text-ink-300">
-          taiko.xyz
-        </span>
-      </div>
+    <header className="flex flex-col gap-4 pt-2">
+      <a
+        href="https://taiko.xyz"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group inline-flex items-center transition-opacity hover:opacity-80"
+        aria-label="taiko.xyz"
+      >
+        {/* logo-pw.svg = pink glyph + white "Taiko" wordmark (taikoxyz/new-website-v3/public/img/brand/logo-pw.svg). */}
+        <img
+          src="/taiko-wordmark.svg"
+          alt="Taiko"
+          width={129}
+          height={36}
+          className="h-9 w-auto"
+        />
+      </a>
 
       <h1 className="bg-taiko-pink bg-clip-text text-4xl font-bold leading-tight tracking-tight text-transparent sm:text-5xl">
         L2 reth snapshots
@@ -24,16 +39,5 @@ export default function Hero() {
         <span className="chip">Storage · Cloudflare R2</span>
       </div>
     </header>
-  );
-}
-
-function TaikoMark() {
-  // Minimal mark — the brand SVG should ship in /public when you have it.
-  // This inline placeholder keeps zero asset dependencies for first deploy.
-  return (
-    <span
-      aria-hidden
-      className="inline-block h-8 w-8 rounded-lg bg-taiko-pink shadow-[0_0_24px_rgba(232,24,153,0.45)]"
-    />
   );
 }
