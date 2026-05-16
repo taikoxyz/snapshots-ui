@@ -35,8 +35,6 @@ export default function Hero() {
 
       <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-ink-300">
         <span className="chip">Format · zstd-compressed tar</span>
-        <span className="chip">URL convention · EthPandaOps-compatible</span>
-        <span className="chip">Storage · Cloudflare R2</span>
       </div>
     </header>
   );
