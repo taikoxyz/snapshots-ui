@@ -37,9 +37,8 @@ export const NETWORKS: NetworkConfig[] = [
     baseUrl: "https://pub-22709b59ef4247f2a0ec31a6a3679564.r2.dev",
     indexUrl:
       "https://pub-22709b59ef4247f2a0ec31a6a3679564.r2.dev/mainnet/index.json",
-    status: "soon",
-    scheduleHuman: "Mon + Thu, 02:00 UTC (pending enablement)",
-    note: "Wired but not yet enabled — turns on after a few more clean hoodi runs prove out reproducibility.",
+    status: "live",
+    scheduleHuman: "Mon + Thu, 02:00 UTC",
   },
 ];
 
